@@ -1,7 +1,7 @@
 import student_data
 import calculations
 import tools
-import data_hundling   
+import data_hundling
 
 def menu():
     print("\n--- Welcome to Student Tracker v5 ---")
@@ -49,8 +49,11 @@ def main():
             print("\nData saved successfully!")
 
         elif choice == "2":
-            name, info = tools.search_students()
-            print(f"\nInformation for '{name}': {info}")
+            searched_student, info_student = tools.search_students()
+            if searched_student is None:
+                print("Search cancelled.")
+            else:
+                print(f"The information of the student '{searched_student}' are : {info_student}")
 
         elif choice == "3":
             top_three = tools.top_three_students()
