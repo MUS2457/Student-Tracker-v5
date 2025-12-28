@@ -5,8 +5,7 @@ def search_students():
     while True :
         student_name = input("Enter student name or 'exit' to quit : ").strip()
         if student_name.lower() == 'exit' :
-            print("bye !")
-            break
+            return None,None
         capital_name = student_name.capitalize()
         for timestamp,students in data.items():
             if capital_name in students:
