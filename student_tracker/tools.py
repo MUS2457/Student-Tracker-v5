@@ -2,18 +2,19 @@ from calculations import average
 import data_hundling
 def search_students():
     data = data_hundling.load_user_data()
-    while True :
-        student_name = input("Enter student name or 'exit' to quit : ").strip()
-        if student_name.lower() == 'exit' :
-            return None,None
-        capital_name = student_name.capitalize()
-        for timestamp,students in data.items():
-            if capital_name in students:
-                return capital_name,students[capital_name]
-        else :
-            print("Student not found")
-            continue
-
+    if data :
+        while True :
+            student_name = input("Enter student name or 'exit' to quit : ").strip()
+            if student_name.lower() == 'exit' :
+                return None,None
+            capital_name = student_name.capitalize()
+            for timestamp,students in data.items():
+                if capital_name in students:
+                    return capital_name,students[capital_name]
+            else :
+                print("Student not found")
+                continue
+    return "empty","empty"
 def top_three_students():
     loaded_data = data_hundling.load_user_data()
     combined = {}
