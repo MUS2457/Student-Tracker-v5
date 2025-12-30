@@ -50,7 +50,9 @@ def main():
 
         elif choice == "2":
             searched_student, info_student = tools.search_students()
-            if searched_student is None:
+            if searched_student =="empty":
+                print("Old data is empty")
+            elif searched_student is None:
                 print("Search cancelled.")
             else:
                 print(f"The information of the student '{searched_student}' are : {info_student}")
